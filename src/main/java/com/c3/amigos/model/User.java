@@ -12,7 +12,7 @@ import java.util.List;
 public class User {
 
     @Id
-    private Long id;
+    private String id;
 
     private List<Friend> friends;
 
@@ -21,7 +21,7 @@ public class User {
     }
 
     public User(UserDTO userDTO) {
-        id = userDTO.getId();
+        id = userDTO.getId().toString();
     }
 
 }

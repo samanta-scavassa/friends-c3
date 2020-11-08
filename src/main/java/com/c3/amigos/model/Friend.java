@@ -10,7 +10,8 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Friend {
 
     @Id
-    private Long id;
+    private String id;
+
     private String name;
     private String img;
 
@@ -20,7 +21,7 @@ public class Friend {
     }
 
     public Friend(UserDTO userDto) {
-        id = userDto.getId();
+        id = userDto.getId().toString();
         name = userDto.getNome() + userDto.getSobrenome();
         img = userDto.getPerfilImg();
 

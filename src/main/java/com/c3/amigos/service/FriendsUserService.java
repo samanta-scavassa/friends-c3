@@ -11,7 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -29,25 +28,25 @@ public class FriendsUserService {
 
     public List<Friend> findFriendsByUserId(Long id){
 
-        Optional<User> user = repository.findById(id);
+        Optional<User> user = repository.findById(id.toString());
 
         return user.get().getFriends();
     }
 
     public User findUserById(Long id){
 
-        Optional<User> user = repository.findById(id);
+        Optional<User> user = repository.findById(id.toString());
         return user.orElse(null);
     }
 
     public Friend addFriend(String token, Long userId, Long friendId){
 
-        Optional<Friend> buscaAmigo = friendRepository.findById(friendId);
+        Optional<Friend> buscaAmigo = friendRepository.findById(friendId.toString());
         UserDTO userFriend;
         Friend friend = new Friend();
         User user = new User();
 
-        Optional<User> buscaUsuario = repository.findById(userId);
+        Optional<User> buscaUsuario = repository.findById(userId.toString());
         if(!buscaUsuario.isPresent()){
             UserDTO userOriginal = userClient.getUserById(token, userId);
             user = new User(userOriginal);
@@ -90,7 +89,7 @@ public class FriendsUserService {
 
     public Friend deleteFriend(Long userId, Long friendId){
 
-        Friend friend = friendRepository.findById(friendId).get();
+        Friend friend = friendRepository.findById(friendId.toString()).get();
         User user = findUserById(userId);
         List<Friend> amigos = user.getFriends();
         amigos.remove(friend);
