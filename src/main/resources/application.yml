@@ -12,8 +12,16 @@ spring:
 eureka:
   instance:
     hostname: friendsc3app.herokuapp.com
+    nonSecurePort: 80
   client:
-    register-with-eureka: true
-    fetch-registry: true
+#    register-with-eureka: true
+#    fetch-registry: true
     service-url:
       defaultZone: https://eurekaserverc3.herokuapp.com/eureka/
+
+#feign:
+#  client:
+#    config:
+#      default:
+#        connectTimeout: 160000000
+#        readTimeout: 160000000
