@@ -1,12 +1,9 @@
 package com.c3.amigos.model;
 
 import com.c3.amigos.dto.UserDTO;
-import com.mongodb.lang.Nullable;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-
-import static java.util.Objects.nonNull;
 
 @Document
 @Data

@@ -7,7 +7,7 @@ spring:
     name: 'amigos'
 
   data.mongodb:
-    uri: mongodb://localhost:27017/friends
+    uri: mongodb+srv://mongodb:admin@cluster0.0nt6w.mongodb.net/c3?retryWrites=true&w=majority
 
 eureka:
   instance:
