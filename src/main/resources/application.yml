@@ -11,7 +11,7 @@ spring:
 
 eureka:
   instance:
-    hostname: https://friendsc3app.herokuapp.com/
+    hostname: friendsc3app.herokuapp.com
   client:
     register-with-eureka: true
     fetch-registry: true
