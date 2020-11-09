@@ -21,7 +21,7 @@ public class User {
     }
 
     public User(UserDTO userDTO) {
-        id = userDTO.getId().toString();
+        this.id = userDTO.getId().toString();
     }
 
 }

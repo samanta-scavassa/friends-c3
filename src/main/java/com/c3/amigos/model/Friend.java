@@ -21,9 +21,9 @@ public class Friend {
     }
 
     public Friend(UserDTO userDto) {
-        id = userDto.getId().toString();
-        name = userDto.getNome() + userDto.getSobrenome();
-        img = userDto.getPerfilImg();
+        this.id = userDto.getId().toString();
+        this.name = userDto.getNome() + userDto.getSobrenome();
+        this.img = userDto.getPerfilImg();
 
     }
 

@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.net.URI;
 import java.util.List;
 
 @RestController
@@ -30,9 +31,13 @@ public class FriendsUserController {
     public ResponseEntity<Friend> addFriend(@RequestHeader("Authorization") String token,
                                             @PathVariable("userId") Long userId,
                                             @PathVariable("friendId") Long friendId){
-        return
-                ResponseEntity.ok()
-                        .body(service.addFriend(token, userId, friendId));
+
+        try {
+            return ResponseEntity.ok()
+                    .body(service.addFriend(token, userId, friendId));
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().build();
+        }
     }
 
     @DeleteMapping("/{id}")
