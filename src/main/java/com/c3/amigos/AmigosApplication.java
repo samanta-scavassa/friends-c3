@@ -10,7 +10,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication(exclude = {DataSourceAutoConfiguration.class })
-//@SpringBootApplication
 @EnableFeignClients
 @EnableEurekaClient
 public class AmigosApplication {
