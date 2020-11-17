@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.*;
 import java.net.URI;
 import java.util.List;
 
-@RestController
 @CrossOrigin
+@RestController
 @RequestMapping("/api/v1/friends")
 public class FriendsUserController {
 
@@ -19,8 +19,8 @@ public class FriendsUserController {
     private FriendsUserService service;
 
     @GetMapping("friends/{id}")
-    public List<Friend> getFriendsByUserId(@PathVariable("id") Long id){
-        return service.findFriendsByUserId(id);
+    public ResponseEntity<List<Friend>> getFriendsByUserId(@PathVariable("id") Long id){
+        return ResponseEntity.ok(service.findFriendsByUserId(id));
     }
 
     @GetMapping("user/{id}")
@@ -41,7 +41,7 @@ public class FriendsUserController {
         }
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/{userId}/{friendId}")
     public ResponseEntity<Friend> deleteFriend(@PathVariable("userId") Long userId,
                                                @PathVariable("friendId") Long friendId){
         return

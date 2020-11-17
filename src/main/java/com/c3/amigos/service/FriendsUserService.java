@@ -31,8 +31,17 @@ public class FriendsUserService {
     public List<Friend> findFriendsByUserId(Long id){
 
         Optional<User> user = repository.findById(id.toString());
+        List<Friend> friends = new ArrayList<>();
 
-        return user.get().getFriends();
+        if(!user.isPresent()){
+            return friends;
+        }
+
+        if(!CollectionUtils.isEmpty(user.get().getFriends())){
+            friends = user.get().getFriends();
+        }
+
+        return friends;
     }
 
     public User findUserById(Long id){
