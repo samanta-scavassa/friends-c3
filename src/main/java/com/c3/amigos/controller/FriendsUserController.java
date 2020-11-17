@@ -11,8 +11,8 @@ import java.net.URI;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1/friends")
 @CrossOrigin
+@RequestMapping("/api/v1/friends")
 public class FriendsUserController {
 
     @Autowired
